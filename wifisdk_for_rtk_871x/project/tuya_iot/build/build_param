@@ -84,7 +84,9 @@ TUYA_IOT_ROOT_DIR = $(ROOT_DIR)/project
 ####	<3> compile files
 ############################################################
 TY_IOT_LIB = $(TUYA_IOT_ROOT_DIR)/tuya_iot/lib/libtuya_iot_lib.a # need export
-TY_IOT_LIB_LDFLAGS = -L$(dir $(TY_IOT_LIB)) -l$(patsubst lib%.a,%, $(notdir $(TY_IOT_LIB))) # need export
+####TY_IOT_LIB_LDFLAGS = -L$(dir $(TY_IOT_LIB)) -l$(patsubst lib%.a,%, $(notdir $(TY_IOT_LIB))) # need export
+# temporary hack, I don't know why line above doesn't work for me
+TY_IOT_LIB_LDFLAGS = -L$(dir $(TY_IOT_LIB)) W:/GIT/tysdk_for_rtl8710bn/wifisdk_for_rtk_871x/project/tuya_iot/lib/libtuya_iot_lib.a
 
 ############################################################
 ####	<4> define compile src and include files
