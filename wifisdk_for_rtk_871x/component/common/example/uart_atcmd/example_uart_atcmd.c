@@ -24,7 +24,7 @@
 #include "at_cmd/atcmd_lwip.h"
 #include "pinmap.h"
 
-#if CONFIG_EXAMPLE_UART_ATCMD
+#if 1
 
 typedef int (*init_done_ptr)(void);
 extern init_done_ptr p_wlan_init_done_callback;

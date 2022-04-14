@@ -4,19 +4,45 @@
 #include "main.h"
 #include "freertos_pmu.h"
 #include "hal_platform.h"
+#include "serial_api.h"
 
 #define TUYA_CONSOLE 0
 extern void console_init(void);
 
+static void uart_send_string(serial_t *sobj, char *pstr)
+{
+    unsigned int i=0;
+
+    while (*(pstr+i) != 0) {
+        serial_putc(sobj, *(pstr+i));
+        i++;
+    }
+}
 static void app_init_thread(void *param)
 {
+ int i;
  
     HAL_WRITE32(0x40000020, 0, 0x16c08195);
 
 
     extern void user_main(void); // user entry
-    user_main();
-
+	// Tuya lib
+    //user_main();
+	// examples from Realtek
+	//example_entry();
+	{
+		serial_t    sobj;
+		serial_init(&sobj,PA_23,PA_18);
+		serial_baud(&sobj,115200);
+		serial_format(&sobj, 8, ParityNone, 1);
+		while(1) {
+			printf("Hello %i\n",i);
+			uart_send_string(&sobj, "Hello World!!\r\n");
+			vTaskDelay(1000);
+			i++;
+		}
+		
+	}
     /* Kill init thread after all init tasks done */
     vTaskDelete(NULL);
 }

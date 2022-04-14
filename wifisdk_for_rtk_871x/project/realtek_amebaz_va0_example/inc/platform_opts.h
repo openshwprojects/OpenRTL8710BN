@@ -259,11 +259,11 @@
 #if CONFIG_EXAMPLE_AUDIO
 #define FATFS_DISK_SD 	1
 #define CONFIG_EXAMPLE_CODEC_SGTL5000         0
-#define CONFIG_EXAMPLE_CODEC_ALC5651	      1
+#define CONFIG_EXAMPLE_CODEC_ALC5651	      0
 #endif
 
 /* For UART Module AT command example */
-#define CONFIG_EXAMPLE_UART_ATCMD	0
+#define CONFIG_EXAMPLE_UART_ATCMD	1
 #if CONFIG_EXAMPLE_UART_ATCMD
 #undef CONFIG_OTA_UPDATE
 #define CONFIG_OTA_UPDATE 1
@@ -414,6 +414,12 @@ in lwip_opt.h for support uart adapter*/
 #undef CONFIG_EXAMPLE_WLAN_FAST_CONNECT
 #define CONFIG_EXAMPLE_WLAN_FAST_CONNECT	1
 #endif
+
+// my fix for ATCMD
+
+#undef CONFIG_EXAMPLE_WLAN_FAST_CONNECT
+#define CONFIG_EXAMPLE_WLAN_FAST_CONNECT	0
+
 
 /* For wifi scenarios example (Wi-Fi, WPS enrollee, P2P GO) */
 // also need to enable WPS and P2P

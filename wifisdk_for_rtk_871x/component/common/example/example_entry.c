@@ -230,6 +230,11 @@ void pre_example_entry(void)
 #endif
 }
 
+void example_wlan_fast_connect(void) {
+	
+}
+write_reconnect_ptr p_write_reconnect_ptr;
+
 /*
   	All of the examples are disabled by default for code size consideration
    	The configuration is enabled in platform_opts.h

@@ -266,6 +266,8 @@ OPERATE_RET device_init(VOID)
     OPERATE_RET op_ret = OPRT_OK;
     // tuya_iot_wf_nw_cfg_ap_pri_set(TRUE);
 	
+    PR_DEBUG("RTL8710 BN cracked! Realtek chips, here we come!");
+	
     TY_IOT_CBS_S wf_cbs = {
         status_changed_cb,\
         gw_ug_inform_cb,\
