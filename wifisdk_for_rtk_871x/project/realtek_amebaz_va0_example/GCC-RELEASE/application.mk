@@ -1,10 +1,15 @@
 
 # Initialize tool chain
 # -------------------------------------------------------------------
-ARM_GCC_TOOLCHAIN = ../../../tools/arm-none-eabi-gcc/4_8-2014q3/bin/
 AMEBA_TOOLDIR	= ../../../component/soc/realtek/8711b/misc/iar_utility/common/tools/
 FLASH_TOOLDIR = ../../../component/soc/realtek/8195a/misc/gcc_utility/
 FLASHDOWNLOAD_TOOLDIR = ../../../component/soc/realtek/8711b/misc/gnu_utility/flash_download/image
+
+ifeq ($(shell uname), Linux)
+	ARM_GCC_TOOLCHAIN = ../../../tools/arm-none-eabi-gcc/4_8-2014q3/bin/
+else
+	ARM_GCC_TOOLCHAIN = ../../../tools/windows/arm-none-eabi-gcc/4_8-2014q3/bin/
+endif
 
 
 CROSS_COMPILE = $(ARM_GCC_TOOLCHAIN)/arm-none-eabi-
