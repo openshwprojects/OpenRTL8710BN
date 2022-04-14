@@ -470,6 +470,7 @@ SRC_C += $(foreach dir, $(TY_SRC_DIRS), $(wildcard $(dir)/*.S))
 
 TY_INC_DIRS += $(shell find ../tuya_common/include -type d)
 TY_INC_DIRS += $(shell find ../tuya_user/$(APP_BIN_NAME)/include -type d)
+TY_INC_DIRS += $(shell find ../../tuya_iot/include -type d)
 INCLUDES += $(foreach base_dir, $(TY_INC_DIRS), $(addprefix -I , $(base_dir))) 
 
 $(TY_OBJS): %.o : %.c
